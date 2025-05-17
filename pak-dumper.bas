@@ -105,8 +105,8 @@ SUB listFiles (filespec AS STRING, attrib AS INTEGER, RootExportDirectory AS STR
    DIM ExportFolder AS STRING
    PAKFile = DIR(filespec, attrib)
    DO WHILE LEN(PAKFile) > 0
-      IF (right(PAKFile,3) = "PAK" ) THEN
-         ExportFolder = RootExportDirectory & "\" & left(PAKFile,len(PAKFile)-4)
+      IF (right(PAKFile,3) = "PAK" OR right(PAKFile,3) = "VRM") THEN
+         ExportFolder = RootExportDirectory & "\" & PAKFile
          MKDir(ExportFolder)
          PRINT
          PRINT "Extracting PAK file... " & PAKFile
